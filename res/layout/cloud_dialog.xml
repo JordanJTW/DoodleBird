@@ -24,20 +24,27 @@
      	android:textColor="#454343"
      	android:textSize="22dip" />
 
-	<com.jordan.game.bubble.CloudButton
-	    android:id="@+id/cancel"
-	    android:layout_width="wrap_content"
-	    android:layout_height="wrap_content"
-	  	android:layout_alignRight="@+id/message"
-	    android:layout_below="@+id/message"
-	    android:text="@string/cancel" />
-
-	<com.jordan.game.bubble.CloudButton
-	    android:id="@+id/accept"
-	    android:layout_width="wrap_content"
-	    android:layout_height="wrap_content"
-	    android:layout_alignLeft="@+id/message"
-	    android:layout_below="@+id/message"
-	    android:text="@string/yes" />
-
+    <LinearLayout 
+    	android:layout_height="wrap_content"
+    	android:layout_width="fill_parent"
+    	
+    	android:layout_below="@id/message">
+    	
+        <com.jordan.game.bubble.CloudButton
+		    android:id="@+id/accept"
+		    android:layout_margin="5dp"
+		    
+		    android:layout_height="wrap_content"
+		    android:layout_width="0dp"
+		    android:layout_weight="1" />
+        
+		<com.jordan.game.bubble.CloudButton
+		    android:id="@+id/cancel"
+		    android:layout_margin="5dp"
+		    
+		    android:layout_height="wrap_content"
+			android:layout_width="0dp"
+			android:layout_weight="1" />
+	
+	</LinearLayout>
 </RelativeLayout>

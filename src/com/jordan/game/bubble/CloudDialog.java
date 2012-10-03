@@ -11,7 +11,7 @@ import android.widget.TextView;
 public class CloudDialog extends Dialog {
 	private TextView mTitle, mMessage;
 	
-	private CloudButton mAccept, mCancel;
+	private CloudButton mPositive, mNegative;
 	
 	public CloudDialog(Context context) {
 		super(context);
@@ -25,8 +25,8 @@ public class CloudDialog extends Dialog {
 		mTitle 		=	(TextView) findViewById(R.id.title);
 		mMessage 	=	(TextView) findViewById(R.id.message); 
 		
-		mAccept 	= 	(CloudButton) findViewById(R.id.accept);
-		mCancel		=	(CloudButton) findViewById(R.id.cancel);
+		mPositive 	= 	(CloudButton) findViewById(R.id.accept);
+		mNegative	=	(CloudButton) findViewById(R.id.cancel);
 	
         Typeface pencil = Typeface.createFromAsset(getContext().getAssets(), "pencilgrid.ttf");
         pencil = Typeface.create(pencil, Typeface.BOLD);
@@ -34,26 +34,52 @@ public class CloudDialog extends Dialog {
 		mTitle.setTypeface(pencil);
 		mMessage.setTypeface(pencil);
 	}
+	
+	public void set(String title, String message,
+			Integer resPositive, Integer resNegative,
+			View.OnClickListener click)
+	{
+
+		if(title != null)
+			setTitle(title);
+
+		if(message != null)
+			setMessage(message);
+
+		if(resPositive != null) {
+			setPositiveButton(resPositive, click);
+			mPositive.setVisibility(View.VISIBLE);
+		} else {
+			mPositive.setVisibility(View.GONE);
+		}
+
+		if(resNegative != null) {
+			setNegativeButton(resNegative, click);
+			mNegative.setVisibility(View.VISIBLE);
+		} else {
+			mNegative.setVisibility(View.GONE);
+		}
+	}
 		
+	public void setTitle(String title) {
+		mTitle.setText(title);
+	}
+	
 	public void setMessage(String message) {
 		mMessage.setText(message);
 	}
 	
 	public void setPositiveButton(int resid, View.OnClickListener l) {
-		setButton(mAccept, resid, l);
+		setButton(mPositive, resid, l);
 	}
 	
 	public void setNegativeButton(int resid, View.OnClickListener l) {
-		setButton(mCancel, resid, l);
+		setButton(mNegative, resid, l);
 	}
 	
 	private void setButton(Button button, int resid, View.OnClickListener listener) {
 		button.setOnClickListener(listener);
 		
 		button.setText(resid);
-	}
-
-	public void setTitle(String title) {
-		mTitle.setText(title);
 	}
 }

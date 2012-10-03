@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Doodle Bird</string>
-    <string name="cancel">Cancel</string>
-    <string name="yes">Yes</string>
+    <string name="button_cancel">Cancel</string>
+    <string name="button_accept">Yes</string>
+    <string name="gameover_title">Game Over!</string>
+    <string name="gameover_message">You had a good run, but the party is over. Try again?</string>
+    <string name="advance_title">Level Complete!</string>
+    <string name="pause_title">Paused</string>
+    <string name="button_next">Next Level</string>
+    <string name="button_resume">Resume</string>
+    <string name="button_restart">Restart</string>
 </resources>

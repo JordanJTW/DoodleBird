@@ -17,7 +17,7 @@ public class Perk extends Entity {
 		
 		mType = type;
 		
-		setVelocities(0f, 0f);
+		setVelocity(0f, 0f);
 		setGravity(40);
 	}
 	

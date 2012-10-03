@@ -7,21 +7,23 @@ import android.graphics.Rect;
 import android.graphics.RectF;
 
 public class Bird extends Entity {
+
 	final static float WIDTH = 65, HEIGHT = 65;
 	
-	Bitmap mDeadBirdBmp;
+	private Bitmap mDeadBirdBmp;
 	
-	int mImgCount = 0;
-	int mImgWidth, mImgHeight;
+	private int mImgCount = 0;
+	private int mImgWidth, mImgHeight;
 	
-	Matrix mMatrix = new Matrix();
+	private Matrix mMatrix = new Matrix();
 	
-	boolean mKilled;
+	private boolean mKilled;
 		
 	public Bird(Bitmap bird, Bitmap dead, float x, float y, float scr_width, float scr_height) {
 		super(bird, x, y, WIDTH, HEIGHT, scr_width, scr_height);
 				
 		mMatrix.setScale(1, -1);
+		
 		mDeadBirdBmp = Bitmap.createBitmap(dead, 0, 0, dead.getWidth(), dead.getHeight(), mMatrix, true);
 		
 		mImgWidth = bird.getWidth() / 3;
@@ -31,10 +33,15 @@ public class Bird extends Entity {
 	}
 	
 	public void killed() {
+
 		if(!mKilled) {
 			mDeltaX = mDeltaY = 0;
+			
 			mMatrix.setScale(1, -1);
 		    mBitmap = Bitmap.createBitmap(mBitmap, 0, 0, mBitmap.getWidth(), mBitmap.getHeight(), mMatrix, true);
+		    
+		    mHitCount = 4;
+		    
 		    mKilled = true;
 		}
 	}
@@ -52,7 +59,7 @@ public class Bird extends Entity {
 		}
 
 	}
-		
+	
 	public void draw(Canvas canvas) {	
 		int i = mImgCount / 10;
 		

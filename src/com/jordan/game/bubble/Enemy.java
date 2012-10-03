@@ -30,7 +30,7 @@ public class Enemy extends Entity {
 		
 		float height = (mBounds.height() - HEIGHT) * PERCENT_HGT;
 		float vy = FloatMath.sqrt(2.0f * mGravity * height);
-		this.setVelocities(0, vy);
+		this.setVelocity(0, vy);
 	}
 	
 	public float getVerticalFriction() {

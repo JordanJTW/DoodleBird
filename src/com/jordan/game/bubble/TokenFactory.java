@@ -30,11 +30,11 @@ public class TokenFactory {
 		case 2:
 			perks = new Perk[3];
 			perks[0] = new Perk(mPointsToken, Perk.Type.TWENTY, x, y, mScreenWidth, mScreenHeight);
-			perks[0].setVelocities(20, -20);
+			perks[0].setVelocity(20, -20);
 			perks[1] = new Perk(mPointsToken, Perk.Type.TWENTY, x, y, mScreenWidth, mScreenHeight);
-			perks[1].setVelocities(0, -20);
+			perks[1].setVelocity(0, -20);
 			perks[2] = new Perk(mPointsToken, Perk.Type.TWENTY, x, y, mScreenWidth, mScreenHeight);
-			perks[2].setVelocities(-20, -20);
+			perks[2].setVelocity(-20, -20);
 			break;
 		case 3:
 		case 4:
@@ -59,7 +59,7 @@ public class TokenFactory {
 		
 		for(int i=0; i<perks.length; i++) {
 			perks[i] = new Perk(mPointsToken, Perk.Type.FIFTY, x, y, mScreenWidth, mScreenHeight);
-			perks[i].setVelocities(-40 + i*10, -20);
+			perks[i].setVelocity(-40 + i*10, -20);
 		}
 		
 		return perks;
